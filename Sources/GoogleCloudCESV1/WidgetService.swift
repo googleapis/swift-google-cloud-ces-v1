@@ -45,7 +45,7 @@ public class WidgetServiceClient: Clients.WidgetServiceProtocol {
   /// @Snippet(path: "WidgetService_GenerateChatToken")
   public func generateChatToken(
     request: GenerateChatTokenRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudCesV1.GenerateChatTokenResponse {
+  ) async throws -> GoogleCloudCESV1.GenerateChatTokenResponse {
     try await self.inner.generateChatToken(request: request, options: options)
   }
 
@@ -187,7 +187,7 @@ extension Clients {
   public protocol WidgetServiceProtocol {
     /// See `WidgetServiceClient.generateChatToken`.
     func generateChatToken(request: GenerateChatTokenRequest) async throws
-      -> GoogleCloudCesV1.GenerateChatTokenResponse
+      -> GoogleCloudCESV1.GenerateChatTokenResponse
 
     /// See `WidgetServiceClient.listLocations`.
     func listLocations(request: GoogleCloudLocation.ListLocationsRequest) async throws
@@ -236,7 +236,7 @@ extension Clients {
     /// See `WidgetServiceClient.generateChatToken`.
     func generateChatToken(
       request: GenerateChatTokenRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.GenerateChatTokenResponse
+    ) async throws -> GoogleCloudCESV1.GenerateChatTokenResponse
 
     /// See `WidgetServiceClient.listLocations`.
     func listLocations(
@@ -278,14 +278,14 @@ extension Clients {
 // Default implementations
 extension Clients.WidgetServiceProtocol {
   public func generateChatToken(request: GenerateChatTokenRequest) async throws
-    -> GoogleCloudCesV1.GenerateChatTokenResponse
+    -> GoogleCloudCESV1.GenerateChatTokenResponse
   {
     try await self.generateChatToken(request: request, options: .init())
   }
 
   public func generateChatToken(
     request: GenerateChatTokenRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudCesV1.GenerateChatTokenResponse {
+  ) async throws -> GoogleCloudCESV1.GenerateChatTokenResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 

@@ -22,46 +22,84 @@ import GoogleCloudLocation
 import GoogleCloudWkt
 import GoogleLongrunning
 import GoogleCloudGax
+import struct Logging.Logger
 
 extension Clients {
-  final class WidgetServiceRetry: WidgetServiceStub {
-    let inner: any WidgetServiceStub
-    let options: GoogleCloudGax.ClientOptions
+  final class ToolServiceLogging: ToolServiceStub {
+    let inner: any ToolServiceStub
+    let logger: Logger
 
-    public init(_ inner: any WidgetServiceStub, options: GoogleCloudGax.ClientOptions) {
+    public init(_ inner: any ToolServiceStub, logger: Logger) {
+      var logger = logger
+      logger[metadataKey: "gcp.artifact.id"] = "google-cloud-ces-v1"
+      logger[metadataKey: "gcp.client.service"] = "ces"
+      logger[metadataKey: "gcp.experimental.swift.client"] = "ToolService"
       self.inner = inner
-      self.options = options
+      self.logger = logger
     }
 
     func _intercept<Input, Output>(
       request: Input,
       options: GoogleCloudGax.RequestOptions,
-      idempotent: Swift.Bool,
+      name: Swift.String,
       action: (Input, GoogleCloudGax.RequestOptions) async throws -> Output,
     ) async throws -> Output {
-      let loop = GoogleCloudGax._RetryLoop(
-        options: options, withDefault: self.options, idempotent: idempotent,
-      )
-      let attempt = { (attemptTimeout: Swift.Duration?) async throws -> Output in
-        var attemptOptions = options
-        attemptOptions.attemptTimeout = attemptTimeout
-        return try await action(request, attemptOptions)
+      var logger = logger
+      logger[metadataKey: "gcp.experimental.swift.request.id"] = "\(UUID())"
+      logger[metadataKey: "gcp.experimental.swift.method"] = .string(name)
+      logger.debug("enter  : \(request) \(options)")
+      do {
+        let output = try await action(request, options)
+        logger.debug("success: \(request) \(options) \(output)")
+        return output
+      } catch let error {
+        logger.debug("error  : \(request) \(options) \(error)")
+        throw error
       }
-      return try await loop.run(attempt: attempt)
     }
 
-    public func generateChatToken(
-      request: GenerateChatTokenRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.GenerateChatTokenResponse {
+    public func executeTool(
+      request: ExecuteToolRequest, options: GoogleCloudGax.RequestOptions
+    ) async throws -> GoogleCloudCESV1.ExecuteToolResponse {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: false,
+        name: "executeTool",
         action: {
-          (r: GenerateChatTokenRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.GenerateChatTokenResponse
+          (r: ExecuteToolRequest, o: GoogleCloudGax.RequestOptions) async throws
+            -> GoogleCloudCESV1.ExecuteToolResponse
           in
-          return try await self.inner.generateChatToken(request: r, options: o)
+          return try await self.inner.executeTool(request: r, options: o)
+        })
+    }
+
+    public func retrieveToolSchema(
+      request: RetrieveToolSchemaRequest, options: GoogleCloudGax.RequestOptions
+    ) async throws -> GoogleCloudCESV1.RetrieveToolSchemaResponse {
+      try await self._intercept(
+        request: request,
+        options: options,
+        name: "retrieveToolSchema",
+        action: {
+          (r: RetrieveToolSchemaRequest, o: GoogleCloudGax.RequestOptions) async throws
+            -> GoogleCloudCESV1.RetrieveToolSchemaResponse
+          in
+          return try await self.inner.retrieveToolSchema(request: r, options: o)
+        })
+    }
+
+    public func retrieveTools(
+      request: RetrieveToolsRequest, options: GoogleCloudGax.RequestOptions
+    ) async throws -> GoogleCloudCESV1.RetrieveToolsResponse {
+      try await self._intercept(
+        request: request,
+        options: options,
+        name: "retrieveTools",
+        action: {
+          (r: RetrieveToolsRequest, o: GoogleCloudGax.RequestOptions) async throws
+            -> GoogleCloudCESV1.RetrieveToolsResponse
+          in
+          return try await self.inner.retrieveTools(request: r, options: o)
         })
     }
 
@@ -71,7 +109,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: true,
+        name: "listLocations",
         action: {
           (r: GoogleCloudLocation.ListLocationsRequest, o: GoogleCloudGax.RequestOptions)
             async throws -> GoogleCloudLocation.ListLocationsResponse
@@ -86,7 +124,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: true,
+        name: "getLocation",
         action: {
           (r: GoogleCloudLocation.GetLocationRequest, o: GoogleCloudGax.RequestOptions) async throws
             -> GoogleCloudLocation.Location
@@ -101,7 +139,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: true,
+        name: "listOperations",
         action: {
           (r: GoogleLongrunning.ListOperationsRequest, o: GoogleCloudGax.RequestOptions)
             async throws -> GoogleLongrunning.ListOperationsResponse
@@ -116,7 +154,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: true,
+        name: "getOperation",
         action: {
           (r: GoogleLongrunning.GetOperationRequest, o: GoogleCloudGax.RequestOptions) async throws
             -> GoogleLongrunning.Operation
@@ -131,7 +169,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: false,
+        name: "deleteOperation",
         action: {
           (r: GoogleLongrunning.DeleteOperationRequest, o: GoogleCloudGax.RequestOptions)
             async throws -> Void in
@@ -145,7 +183,7 @@ extension Clients {
       try await self._intercept(
         request: request,
         options: options,
-        idempotent: false,
+        name: "cancelOperation",
         action: {
           (r: GoogleLongrunning.CancelOperationRequest, o: GoogleCloudGax.RequestOptions)
             async throws -> Void in

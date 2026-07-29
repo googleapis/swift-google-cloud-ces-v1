@@ -61,14 +61,14 @@ extension Clients {
 
     public func listApps(
       request: ListAppsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.ListAppsResponse {
+    ) async throws -> GoogleCloudCESV1.ListAppsResponse {
       try await self._intercept(
         request: request,
         options: options,
         name: "listApps",
         action: {
           (r: ListAppsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.ListAppsResponse
+            -> GoogleCloudCESV1.ListAppsResponse
           in
           return try await self.inner.listApps(request: r, options: o)
         })
@@ -76,13 +76,13 @@ extension Clients {
 
     public func getApp(
       request: GetAppRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.App {
+    ) async throws -> GoogleCloudCESV1.App {
       try await self._intercept(
         request: request,
         options: options,
         name: "getApp",
         action: {
-          (r: GetAppRequest, o: GoogleCloudGax.RequestOptions) async throws -> GoogleCloudCesV1.App
+          (r: GetAppRequest, o: GoogleCloudGax.RequestOptions) async throws -> GoogleCloudCESV1.App
           in
           return try await self.inner.getApp(request: r, options: o)
         })
@@ -105,14 +105,14 @@ extension Clients {
 
     public func updateApp(
       request: UpdateAppRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.App {
+    ) async throws -> GoogleCloudCESV1.App {
       try await self._intercept(
         request: request,
         options: options,
         name: "updateApp",
         action: {
           (r: UpdateAppRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.App
+            -> GoogleCloudCESV1.App
           in
           return try await self.inner.updateApp(request: r, options: o)
         })
@@ -165,14 +165,14 @@ extension Clients {
 
     public func listAgents(
       request: ListAgentsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.ListAgentsResponse {
+    ) async throws -> GoogleCloudCESV1.ListAgentsResponse {
       try await self._intercept(
         request: request,
         options: options,
         name: "listAgents",
         action: {
           (r: ListAgentsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.ListAgentsResponse
+            -> GoogleCloudCESV1.ListAgentsResponse
           in
           return try await self.inner.listAgents(request: r, options: o)
         })
@@ -180,14 +180,14 @@ extension Clients {
 
     public func getAgent(
       request: GetAgentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Agent {
+    ) async throws -> GoogleCloudCESV1.Agent {
       try await self._intercept(
         request: request,
         options: options,
         name: "getAgent",
         action: {
           (r: GetAgentRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Agent
+            -> GoogleCloudCESV1.Agent
           in
           return try await self.inner.getAgent(request: r, options: o)
         })
@@ -195,14 +195,14 @@ extension Clients {
 
     public func createAgent(
       request: CreateAgentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Agent {
+    ) async throws -> GoogleCloudCESV1.Agent {
       try await self._intercept(
         request: request,
         options: options,
         name: "createAgent",
         action: {
           (r: CreateAgentRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Agent
+            -> GoogleCloudCESV1.Agent
           in
           return try await self.inner.createAgent(request: r, options: o)
         })
@@ -210,14 +210,14 @@ extension Clients {
 
     public func updateAgent(
       request: UpdateAgentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Agent {
+    ) async throws -> GoogleCloudCESV1.Agent {
       try await self._intercept(
         request: request,
         options: options,
         name: "updateAgent",
         action: {
           (r: UpdateAgentRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Agent
+            -> GoogleCloudCESV1.Agent
           in
           return try await self.inner.updateAgent(request: r, options: o)
         })
@@ -237,14 +237,14 @@ extension Clients {
 
     public func listExamples(
       request: ListExamplesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.ListExamplesResponse {
+    ) async throws -> GoogleCloudCESV1.ListExamplesResponse {
       try await self._intercept(
         request: request,
         options: options,
         name: "listExamples",
         action: {
           (r: ListExamplesRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.ListExamplesResponse
+            -> GoogleCloudCESV1.ListExamplesResponse
           in
           return try await self.inner.listExamples(request: r, options: o)
         })
@@ -252,14 +252,14 @@ extension Clients {
 
     public func getExample(
       request: GetExampleRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Example {
+    ) async throws -> GoogleCloudCESV1.Example {
       try await self._intercept(
         request: request,
         options: options,
         name: "getExample",
         action: {
           (r: GetExampleRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Example
+            -> GoogleCloudCESV1.Example
           in
           return try await self.inner.getExample(request: r, options: o)
         })
@@ -267,14 +267,14 @@ extension Clients {
 
     public func createExample(
       request: CreateExampleRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Example {
+    ) async throws -> GoogleCloudCESV1.Example {
       try await self._intercept(
         request: request,
         options: options,
         name: "createExample",
         action: {
           (r: CreateExampleRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Example
+            -> GoogleCloudCESV1.Example
           in
           return try await self.inner.createExample(request: r, options: o)
         })
@@ -282,14 +282,14 @@ extension Clients {
 
     public func updateExample(
       request: UpdateExampleRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Example {
+    ) async throws -> GoogleCloudCESV1.Example {
       try await self._intercept(
         request: request,
         options: options,
         name: "updateExample",
         action: {
           (r: UpdateExampleRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Example
+            -> GoogleCloudCESV1.Example
           in
           return try await self.inner.updateExample(request: r, options: o)
         })
@@ -310,14 +310,14 @@ extension Clients {
 
     public func listTools(
       request: ListToolsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.ListToolsResponse {
+    ) async throws -> GoogleCloudCESV1.ListToolsResponse {
       try await self._intercept(
         request: request,
         options: options,
         name: "listTools",
         action: {
           (r: ListToolsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.ListToolsResponse
+            -> GoogleCloudCESV1.ListToolsResponse
           in
           return try await self.inner.listTools(request: r, options: o)
         })
@@ -325,14 +325,14 @@ extension Clients {
 
     public func getTool(
       request: GetToolRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Tool {
+    ) async throws -> GoogleCloudCESV1.Tool {
       try await self._intercept(
         request: request,
         options: options,
         name: "getTool",
         action: {
           (r: GetToolRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Tool
+            -> GoogleCloudCESV1.Tool
           in
           return try await self.inner.getTool(request: r, options: o)
         })
@@ -340,14 +340,14 @@ extension Clients {
 
     public func listConversations(
       request: ListConversationsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.ListConversationsResponse {
+    ) async throws -> GoogleCloudCESV1.ListConversationsResponse {
       try await self._intercept(
         request: request,
         options: options,
         name: "listConversations",
         action: {
           (r: ListConversationsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.ListConversationsResponse
+            -> GoogleCloudCESV1.ListConversationsResponse
           in
           return try await self.inner.listConversations(request: r, options: o)
         })
@@ -355,14 +355,14 @@ extension Clients {
 
     public func getConversation(
       request: GetConversationRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Conversation {
+    ) async throws -> GoogleCloudCESV1.Conversation {
       try await self._intercept(
         request: request,
         options: options,
         name: "getConversation",
         action: {
           (r: GetConversationRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Conversation
+            -> GoogleCloudCESV1.Conversation
           in
           return try await self.inner.getConversation(request: r, options: o)
         })
@@ -398,14 +398,14 @@ extension Clients {
 
     public func createTool(
       request: CreateToolRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Tool {
+    ) async throws -> GoogleCloudCESV1.Tool {
       try await self._intercept(
         request: request,
         options: options,
         name: "createTool",
         action: {
           (r: CreateToolRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Tool
+            -> GoogleCloudCESV1.Tool
           in
           return try await self.inner.createTool(request: r, options: o)
         })
@@ -413,14 +413,14 @@ extension Clients {
 
     public func updateTool(
       request: UpdateToolRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Tool {
+    ) async throws -> GoogleCloudCESV1.Tool {
       try await self._intercept(
         request: request,
         options: options,
         name: "updateTool",
         action: {
           (r: UpdateToolRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Tool
+            -> GoogleCloudCESV1.Tool
           in
           return try await self.inner.updateTool(request: r, options: o)
         })
@@ -440,14 +440,14 @@ extension Clients {
 
     public func listGuardrails(
       request: ListGuardrailsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.ListGuardrailsResponse {
+    ) async throws -> GoogleCloudCESV1.ListGuardrailsResponse {
       try await self._intercept(
         request: request,
         options: options,
         name: "listGuardrails",
         action: {
           (r: ListGuardrailsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.ListGuardrailsResponse
+            -> GoogleCloudCESV1.ListGuardrailsResponse
           in
           return try await self.inner.listGuardrails(request: r, options: o)
         })
@@ -455,14 +455,14 @@ extension Clients {
 
     public func getGuardrail(
       request: GetGuardrailRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Guardrail {
+    ) async throws -> GoogleCloudCESV1.Guardrail {
       try await self._intercept(
         request: request,
         options: options,
         name: "getGuardrail",
         action: {
           (r: GetGuardrailRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Guardrail
+            -> GoogleCloudCESV1.Guardrail
           in
           return try await self.inner.getGuardrail(request: r, options: o)
         })
@@ -470,14 +470,14 @@ extension Clients {
 
     public func createGuardrail(
       request: CreateGuardrailRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Guardrail {
+    ) async throws -> GoogleCloudCESV1.Guardrail {
       try await self._intercept(
         request: request,
         options: options,
         name: "createGuardrail",
         action: {
           (r: CreateGuardrailRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Guardrail
+            -> GoogleCloudCESV1.Guardrail
           in
           return try await self.inner.createGuardrail(request: r, options: o)
         })
@@ -485,14 +485,14 @@ extension Clients {
 
     public func updateGuardrail(
       request: UpdateGuardrailRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Guardrail {
+    ) async throws -> GoogleCloudCESV1.Guardrail {
       try await self._intercept(
         request: request,
         options: options,
         name: "updateGuardrail",
         action: {
           (r: UpdateGuardrailRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Guardrail
+            -> GoogleCloudCESV1.Guardrail
           in
           return try await self.inner.updateGuardrail(request: r, options: o)
         })
@@ -513,14 +513,14 @@ extension Clients {
 
     public func listDeployments(
       request: ListDeploymentsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.ListDeploymentsResponse {
+    ) async throws -> GoogleCloudCESV1.ListDeploymentsResponse {
       try await self._intercept(
         request: request,
         options: options,
         name: "listDeployments",
         action: {
           (r: ListDeploymentsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.ListDeploymentsResponse
+            -> GoogleCloudCESV1.ListDeploymentsResponse
           in
           return try await self.inner.listDeployments(request: r, options: o)
         })
@@ -528,14 +528,14 @@ extension Clients {
 
     public func getDeployment(
       request: GetDeploymentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Deployment {
+    ) async throws -> GoogleCloudCESV1.Deployment {
       try await self._intercept(
         request: request,
         options: options,
         name: "getDeployment",
         action: {
           (r: GetDeploymentRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Deployment
+            -> GoogleCloudCESV1.Deployment
           in
           return try await self.inner.getDeployment(request: r, options: o)
         })
@@ -543,14 +543,14 @@ extension Clients {
 
     public func createDeployment(
       request: CreateDeploymentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Deployment {
+    ) async throws -> GoogleCloudCESV1.Deployment {
       try await self._intercept(
         request: request,
         options: options,
         name: "createDeployment",
         action: {
           (r: CreateDeploymentRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Deployment
+            -> GoogleCloudCESV1.Deployment
           in
           return try await self.inner.createDeployment(request: r, options: o)
         })
@@ -558,14 +558,14 @@ extension Clients {
 
     public func updateDeployment(
       request: UpdateDeploymentRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Deployment {
+    ) async throws -> GoogleCloudCESV1.Deployment {
       try await self._intercept(
         request: request,
         options: options,
         name: "updateDeployment",
         action: {
           (r: UpdateDeploymentRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Deployment
+            -> GoogleCloudCESV1.Deployment
           in
           return try await self.inner.updateDeployment(request: r, options: o)
         })
@@ -586,14 +586,14 @@ extension Clients {
 
     public func listToolsets(
       request: ListToolsetsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.ListToolsetsResponse {
+    ) async throws -> GoogleCloudCESV1.ListToolsetsResponse {
       try await self._intercept(
         request: request,
         options: options,
         name: "listToolsets",
         action: {
           (r: ListToolsetsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.ListToolsetsResponse
+            -> GoogleCloudCESV1.ListToolsetsResponse
           in
           return try await self.inner.listToolsets(request: r, options: o)
         })
@@ -601,14 +601,14 @@ extension Clients {
 
     public func getToolset(
       request: GetToolsetRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Toolset {
+    ) async throws -> GoogleCloudCESV1.Toolset {
       try await self._intercept(
         request: request,
         options: options,
         name: "getToolset",
         action: {
           (r: GetToolsetRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Toolset
+            -> GoogleCloudCESV1.Toolset
           in
           return try await self.inner.getToolset(request: r, options: o)
         })
@@ -616,14 +616,14 @@ extension Clients {
 
     public func createToolset(
       request: CreateToolsetRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Toolset {
+    ) async throws -> GoogleCloudCESV1.Toolset {
       try await self._intercept(
         request: request,
         options: options,
         name: "createToolset",
         action: {
           (r: CreateToolsetRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Toolset
+            -> GoogleCloudCESV1.Toolset
           in
           return try await self.inner.createToolset(request: r, options: o)
         })
@@ -631,14 +631,14 @@ extension Clients {
 
     public func updateToolset(
       request: UpdateToolsetRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Toolset {
+    ) async throws -> GoogleCloudCESV1.Toolset {
       try await self._intercept(
         request: request,
         options: options,
         name: "updateToolset",
         action: {
           (r: UpdateToolsetRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Toolset
+            -> GoogleCloudCESV1.Toolset
           in
           return try await self.inner.updateToolset(request: r, options: o)
         })
@@ -659,14 +659,14 @@ extension Clients {
 
     public func listAppVersions(
       request: ListAppVersionsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.ListAppVersionsResponse {
+    ) async throws -> GoogleCloudCESV1.ListAppVersionsResponse {
       try await self._intercept(
         request: request,
         options: options,
         name: "listAppVersions",
         action: {
           (r: ListAppVersionsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.ListAppVersionsResponse
+            -> GoogleCloudCESV1.ListAppVersionsResponse
           in
           return try await self.inner.listAppVersions(request: r, options: o)
         })
@@ -674,14 +674,14 @@ extension Clients {
 
     public func getAppVersion(
       request: GetAppVersionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.AppVersion {
+    ) async throws -> GoogleCloudCESV1.AppVersion {
       try await self._intercept(
         request: request,
         options: options,
         name: "getAppVersion",
         action: {
           (r: GetAppVersionRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.AppVersion
+            -> GoogleCloudCESV1.AppVersion
           in
           return try await self.inner.getAppVersion(request: r, options: o)
         })
@@ -689,14 +689,14 @@ extension Clients {
 
     public func createAppVersion(
       request: CreateAppVersionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.AppVersion {
+    ) async throws -> GoogleCloudCESV1.AppVersion {
       try await self._intercept(
         request: request,
         options: options,
         name: "createAppVersion",
         action: {
           (r: CreateAppVersionRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.AppVersion
+            -> GoogleCloudCESV1.AppVersion
           in
           return try await self.inner.createAppVersion(request: r, options: o)
         })
@@ -732,14 +732,14 @@ extension Clients {
 
     public func listChangelogs(
       request: ListChangelogsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.ListChangelogsResponse {
+    ) async throws -> GoogleCloudCESV1.ListChangelogsResponse {
       try await self._intercept(
         request: request,
         options: options,
         name: "listChangelogs",
         action: {
           (r: ListChangelogsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.ListChangelogsResponse
+            -> GoogleCloudCESV1.ListChangelogsResponse
           in
           return try await self.inner.listChangelogs(request: r, options: o)
         })
@@ -747,14 +747,14 @@ extension Clients {
 
     public func getChangelog(
       request: GetChangelogRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.Changelog {
+    ) async throws -> GoogleCloudCESV1.Changelog {
       try await self._intercept(
         request: request,
         options: options,
         name: "getChangelog",
         action: {
           (r: GetChangelogRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.Changelog
+            -> GoogleCloudCESV1.Changelog
           in
           return try await self.inner.getChangelog(request: r, options: o)
         })

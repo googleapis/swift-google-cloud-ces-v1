@@ -60,14 +60,14 @@ extension Clients {
 
     public func generateChatToken(
       request: GenerateChatTokenRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.GenerateChatTokenResponse {
+    ) async throws -> GoogleCloudCESV1.GenerateChatTokenResponse {
       try await self._intercept(
         request: request,
         options: options,
         name: "generateChatToken",
         action: {
           (r: GenerateChatTokenRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.GenerateChatTokenResponse
+            -> GoogleCloudCESV1.GenerateChatTokenResponse
           in
           return try await self.inner.generateChatToken(request: r, options: o)
         })

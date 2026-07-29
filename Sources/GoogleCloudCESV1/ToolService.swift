@@ -44,7 +44,7 @@ public class ToolServiceClient: Clients.ToolServiceProtocol {
   /// @Snippet(path: "ToolService_ExecuteTool")
   public func executeTool(
     request: ExecuteToolRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudCesV1.ExecuteToolResponse {
+  ) async throws -> GoogleCloudCESV1.ExecuteToolResponse {
     try await self.inner.executeTool(request: request, options: options)
   }
 
@@ -54,7 +54,7 @@ public class ToolServiceClient: Clients.ToolServiceProtocol {
   /// @Snippet(path: "ToolService_RetrieveToolSchema")
   public func retrieveToolSchema(
     request: RetrieveToolSchemaRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudCesV1.RetrieveToolSchemaResponse {
+  ) async throws -> GoogleCloudCESV1.RetrieveToolSchemaResponse {
     try await self.inner.retrieveToolSchema(request: request, options: options)
   }
 
@@ -63,7 +63,7 @@ public class ToolServiceClient: Clients.ToolServiceProtocol {
   /// @Snippet(path: "ToolService_RetrieveTools")
   public func retrieveTools(
     request: RetrieveToolsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudCesV1.RetrieveToolsResponse {
+  ) async throws -> GoogleCloudCESV1.RetrieveToolsResponse {
     try await self.inner.retrieveTools(request: request, options: options)
   }
 
@@ -205,15 +205,15 @@ extension Clients {
   public protocol ToolServiceProtocol {
     /// See `ToolServiceClient.executeTool`.
     func executeTool(request: ExecuteToolRequest) async throws
-      -> GoogleCloudCesV1.ExecuteToolResponse
+      -> GoogleCloudCESV1.ExecuteToolResponse
 
     /// See `ToolServiceClient.retrieveToolSchema`.
     func retrieveToolSchema(request: RetrieveToolSchemaRequest) async throws
-      -> GoogleCloudCesV1.RetrieveToolSchemaResponse
+      -> GoogleCloudCESV1.RetrieveToolSchemaResponse
 
     /// See `ToolServiceClient.retrieveTools`.
     func retrieveTools(request: RetrieveToolsRequest) async throws
-      -> GoogleCloudCesV1.RetrieveToolsResponse
+      -> GoogleCloudCESV1.RetrieveToolsResponse
 
     /// See `ToolServiceClient.listLocations`.
     func listLocations(request: GoogleCloudLocation.ListLocationsRequest) async throws
@@ -262,17 +262,17 @@ extension Clients {
     /// See `ToolServiceClient.executeTool`.
     func executeTool(
       request: ExecuteToolRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.ExecuteToolResponse
+    ) async throws -> GoogleCloudCESV1.ExecuteToolResponse
 
     /// See `ToolServiceClient.retrieveToolSchema`.
     func retrieveToolSchema(
       request: RetrieveToolSchemaRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.RetrieveToolSchemaResponse
+    ) async throws -> GoogleCloudCESV1.RetrieveToolSchemaResponse
 
     /// See `ToolServiceClient.retrieveTools`.
     func retrieveTools(
       request: RetrieveToolsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.RetrieveToolsResponse
+    ) async throws -> GoogleCloudCESV1.RetrieveToolsResponse
 
     /// See `ToolServiceClient.listLocations`.
     func listLocations(
@@ -314,38 +314,38 @@ extension Clients {
 // Default implementations
 extension Clients.ToolServiceProtocol {
   public func executeTool(request: ExecuteToolRequest) async throws
-    -> GoogleCloudCesV1.ExecuteToolResponse
+    -> GoogleCloudCESV1.ExecuteToolResponse
   {
     try await self.executeTool(request: request, options: .init())
   }
 
   public func executeTool(
     request: ExecuteToolRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudCesV1.ExecuteToolResponse {
+  ) async throws -> GoogleCloudCESV1.ExecuteToolResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func retrieveToolSchema(request: RetrieveToolSchemaRequest) async throws
-    -> GoogleCloudCesV1.RetrieveToolSchemaResponse
+    -> GoogleCloudCESV1.RetrieveToolSchemaResponse
   {
     try await self.retrieveToolSchema(request: request, options: .init())
   }
 
   public func retrieveToolSchema(
     request: RetrieveToolSchemaRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudCesV1.RetrieveToolSchemaResponse {
+  ) async throws -> GoogleCloudCESV1.RetrieveToolSchemaResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func retrieveTools(request: RetrieveToolsRequest) async throws
-    -> GoogleCloudCesV1.RetrieveToolsResponse
+    -> GoogleCloudCESV1.RetrieveToolsResponse
   {
     try await self.retrieveTools(request: request, options: .init())
   }
 
   public func retrieveTools(
     request: RetrieveToolsRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudCesV1.RetrieveToolsResponse {
+  ) async throws -> GoogleCloudCESV1.RetrieveToolsResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 

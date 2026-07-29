@@ -24,11 +24,11 @@ import GoogleLongrunning
 import GoogleCloudGax
 
 extension Clients {
-  final class ToolServiceRetry: ToolServiceStub {
-    let inner: any ToolServiceStub
+  final class SessionServiceRetry: SessionServiceStub {
+    let inner: any SessionServiceStub
     let options: GoogleCloudGax.ClientOptions
 
-    public init(_ inner: any ToolServiceStub, options: GoogleCloudGax.ClientOptions) {
+    public init(_ inner: any SessionServiceStub, options: GoogleCloudGax.ClientOptions) {
       self.inner = inner
       self.options = options
     }
@@ -50,48 +50,33 @@ extension Clients {
       return try await loop.run(attempt: attempt)
     }
 
-    public func executeTool(
-      request: ExecuteToolRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.ExecuteToolResponse {
+    public func runSession(
+      request: RunSessionRequest, options: GoogleCloudGax.RequestOptions
+    ) async throws -> GoogleCloudCESV1.RunSessionResponse {
       try await self._intercept(
         request: request,
         options: options,
         idempotent: false,
         action: {
-          (r: ExecuteToolRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.ExecuteToolResponse
+          (r: RunSessionRequest, o: GoogleCloudGax.RequestOptions) async throws
+            -> GoogleCloudCESV1.RunSessionResponse
           in
-          return try await self.inner.executeTool(request: r, options: o)
+          return try await self.inner.runSession(request: r, options: o)
         })
     }
 
-    public func retrieveToolSchema(
-      request: RetrieveToolSchemaRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.RetrieveToolSchemaResponse {
+    public func streamRunSession(
+      request: RunSessionRequest, options: GoogleCloudGax.RequestOptions
+    ) async throws -> GoogleCloudCESV1.RunSessionResponse {
       try await self._intercept(
         request: request,
         options: options,
         idempotent: false,
         action: {
-          (r: RetrieveToolSchemaRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.RetrieveToolSchemaResponse
+          (r: RunSessionRequest, o: GoogleCloudGax.RequestOptions) async throws
+            -> GoogleCloudCESV1.RunSessionResponse
           in
-          return try await self.inner.retrieveToolSchema(request: r, options: o)
-        })
-    }
-
-    public func retrieveTools(
-      request: RetrieveToolsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.RetrieveToolsResponse {
-      try await self._intercept(
-        request: request,
-        options: options,
-        idempotent: false,
-        action: {
-          (r: RetrieveToolsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleCloudCesV1.RetrieveToolsResponse
-          in
-          return try await self.inner.retrieveTools(request: r, options: o)
+          return try await self.inner.streamRunSession(request: r, options: o)
         })
     }
 

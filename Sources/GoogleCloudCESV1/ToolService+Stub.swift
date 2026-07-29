@@ -24,14 +24,18 @@ import GoogleLongrunning
 import GoogleCloudGax
 
 extension Clients {
-  protocol SessionServiceStub {
-    func runSession(
-      request: RunSessionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.RunSessionResponse
+  protocol ToolServiceStub {
+    func executeTool(
+      request: ExecuteToolRequest, options: GoogleCloudGax.RequestOptions
+    ) async throws -> GoogleCloudCESV1.ExecuteToolResponse
 
-    func streamRunSession(
-      request: RunSessionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.RunSessionResponse
+    func retrieveToolSchema(
+      request: RetrieveToolSchemaRequest, options: GoogleCloudGax.RequestOptions
+    ) async throws -> GoogleCloudCESV1.RetrieveToolSchemaResponse
+
+    func retrieveTools(
+      request: RetrieveToolsRequest, options: GoogleCloudGax.RequestOptions
+    ) async throws -> GoogleCloudCESV1.RetrieveToolsResponse
 
     func listLocations(
       request: GoogleCloudLocation.ListLocationsRequest, options: GoogleCloudGax.RequestOptions
@@ -58,7 +62,7 @@ extension Clients {
     ) async throws
   }
 
-  class SessionServiceTransport: SessionServiceStub {
+  class ToolServiceTransport: ToolServiceStub {
     let inner: GoogleCloudGax.HTTPClient
 
     public init(_ options: GoogleCloudGax.ClientOptions = .init()) throws {
@@ -66,15 +70,14 @@ extension Clients {
         from: options, withDefaultEndpoint: "https://ces.googleapis.com")
     }
 
-    public func runSession(
-      request: RunSessionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.RunSessionResponse {
+    public func executeTool(
+      request: ExecuteToolRequest, options: GoogleCloudGax.RequestOptions
+    ) async throws -> GoogleCloudCESV1.ExecuteToolResponse {
       let path = try { () throws -> Swift.String in
-        guard let pathVariable0 = request.config.map({ $0.session }), !pathVariable0.isEmpty else {
-          throw GoogleCloudGax.RequestError.binding(
-            "'request.config.session' is not set or is empty")
+        guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
+          throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
         }
-        return "/v1/\(pathVariable0):runSession"
+        return "/v1/\(pathVariable0):executeTool"
       }()
       let query = [
         URLQueryItem(name: "$alt", value: "json;enum-encoding=int")
@@ -86,18 +89,17 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleCloudCesV1.RunSessionResponse.self, from: data)
+        GoogleCloudCESV1.ExecuteToolResponse.self, from: data)
     }
 
-    public func streamRunSession(
-      request: RunSessionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.RunSessionResponse {
+    public func retrieveToolSchema(
+      request: RetrieveToolSchemaRequest, options: GoogleCloudGax.RequestOptions
+    ) async throws -> GoogleCloudCESV1.RetrieveToolSchemaResponse {
       let path = try { () throws -> Swift.String in
-        guard let pathVariable0 = request.config.map({ $0.session }), !pathVariable0.isEmpty else {
-          throw GoogleCloudGax.RequestError.binding(
-            "'request.config.session' is not set or is empty")
+        guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
+          throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
         }
-        return "/v1/\(pathVariable0):streamRunSession"
+        return "/v1/\(pathVariable0):retrieveToolSchema"
       }()
       let query = [
         URLQueryItem(name: "$alt", value: "json;enum-encoding=int")
@@ -109,7 +111,29 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleCloudCesV1.RunSessionResponse.self, from: data)
+        GoogleCloudCESV1.RetrieveToolSchemaResponse.self, from: data)
+    }
+
+    public func retrieveTools(
+      request: RetrieveToolsRequest, options: GoogleCloudGax.RequestOptions
+    ) async throws -> GoogleCloudCESV1.RetrieveToolsResponse {
+      let path = try { () throws -> Swift.String in
+        guard let pathVariable0 = request.toolset as Swift.String?, !pathVariable0.isEmpty else {
+          throw GoogleCloudGax.RequestError.binding("'request.toolset' is not set or is empty")
+        }
+        return "/v1/\(pathVariable0):retrieveTools"
+      }()
+      let query = [
+        URLQueryItem(name: "$alt", value: "json;enum-encoding=int")
+      ]
+      var req = try await self.inner.Request(path: path, query: query)
+      req.httpMethod = "POST"
+      req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
+      req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+      req.httpBody = try JSONEncoder().encode(request)
+      let (data, _) = try await self.inner.rpc(for: req).get()
+      return try GoogleCloudWkt._ProtoJSONDecoder().decode(
+        GoogleCloudCESV1.RetrieveToolsResponse.self, from: data)
     }
 
     public func listLocations(

@@ -27,7 +27,7 @@ extension Clients {
   protocol WidgetServiceStub {
     func generateChatToken(
       request: GenerateChatTokenRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.GenerateChatTokenResponse
+    ) async throws -> GoogleCloudCESV1.GenerateChatTokenResponse
 
     func listLocations(
       request: GoogleCloudLocation.ListLocationsRequest, options: GoogleCloudGax.RequestOptions
@@ -64,7 +64,7 @@ extension Clients {
 
     public func generateChatToken(
       request: GenerateChatTokenRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.GenerateChatTokenResponse {
+    ) async throws -> GoogleCloudCESV1.GenerateChatTokenResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -81,7 +81,7 @@ extension Clients {
       req.httpBody = try JSONEncoder().encode(request)
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleCloudCesV1.GenerateChatTokenResponse.self, from: data)
+        GoogleCloudCESV1.GenerateChatTokenResponse.self, from: data)
     }
 
     public func listLocations(

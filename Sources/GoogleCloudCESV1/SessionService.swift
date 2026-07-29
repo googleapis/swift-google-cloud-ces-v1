@@ -44,7 +44,7 @@ public class SessionServiceClient: Clients.SessionServiceProtocol {
   /// @Snippet(path: "SessionService_RunSession")
   public func runSession(
     request: RunSessionRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudCesV1.RunSessionResponse {
+  ) async throws -> GoogleCloudCESV1.RunSessionResponse {
     try await self.inner.runSession(request: request, options: options)
   }
 
@@ -63,7 +63,7 @@ public class SessionServiceClient: Clients.SessionServiceProtocol {
   /// @Snippet(path: "SessionService_StreamRunSession")
   public func streamRunSession(
     request: RunSessionRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudCesV1.RunSessionResponse {
+  ) async throws -> GoogleCloudCESV1.RunSessionResponse {
     try await self.inner.streamRunSession(request: request, options: options)
   }
 
@@ -204,11 +204,11 @@ extension Clients {
   /// and pass a mock implementation in your tests.
   public protocol SessionServiceProtocol {
     /// See `SessionServiceClient.runSession`.
-    func runSession(request: RunSessionRequest) async throws -> GoogleCloudCesV1.RunSessionResponse
+    func runSession(request: RunSessionRequest) async throws -> GoogleCloudCESV1.RunSessionResponse
 
     /// See `SessionServiceClient.streamRunSession`.
     func streamRunSession(request: RunSessionRequest) async throws
-      -> GoogleCloudCesV1.RunSessionResponse
+      -> GoogleCloudCESV1.RunSessionResponse
 
     /// See `SessionServiceClient.listLocations`.
     func listLocations(request: GoogleCloudLocation.ListLocationsRequest) async throws
@@ -257,12 +257,12 @@ extension Clients {
     /// See `SessionServiceClient.runSession`.
     func runSession(
       request: RunSessionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.RunSessionResponse
+    ) async throws -> GoogleCloudCESV1.RunSessionResponse
 
     /// See `SessionServiceClient.streamRunSession`.
     func streamRunSession(
       request: RunSessionRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleCloudCesV1.RunSessionResponse
+    ) async throws -> GoogleCloudCESV1.RunSessionResponse
 
     /// See `SessionServiceClient.listLocations`.
     func listLocations(
@@ -304,26 +304,26 @@ extension Clients {
 // Default implementations
 extension Clients.SessionServiceProtocol {
   public func runSession(request: RunSessionRequest) async throws
-    -> GoogleCloudCesV1.RunSessionResponse
+    -> GoogleCloudCESV1.RunSessionResponse
   {
     try await self.runSession(request: request, options: .init())
   }
 
   public func runSession(
     request: RunSessionRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudCesV1.RunSessionResponse {
+  ) async throws -> GoogleCloudCESV1.RunSessionResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
   public func streamRunSession(request: RunSessionRequest) async throws
-    -> GoogleCloudCesV1.RunSessionResponse
+    -> GoogleCloudCESV1.RunSessionResponse
   {
     try await self.streamRunSession(request: request, options: .init())
   }
 
   public func streamRunSession(
     request: RunSessionRequest, options: GoogleCloudGax.RequestOptions
-  ) async throws -> GoogleCloudCesV1.RunSessionResponse {
+  ) async throws -> GoogleCloudCESV1.RunSessionResponse {
     throw GoogleCloudGax.RequestError.unimplemented
   }
 
